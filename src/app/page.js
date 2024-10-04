@@ -43,22 +43,22 @@ export default function Home() {
             <div className="flex justify-center gap-[1rem] ">
             <form className="search-form" onSubmit={handleSearch}>
                 <select value={from} onChange={(e) => setFrom(e.target.value)} className="bg-white text-black" name="from" required>
-                  <option value="" disabled selected >
+                  <option key={index} value="" disabled selected >
                     From
                   </option>
                   {
                     airports.map((airport)=>(
-                      <option key={airport.code} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={index} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
                 <select value={to} onChange={(e) => setTo(e.target.value)} className="bg-white text-black " name="to" required>
-                  <option value="" disabled selected >
+                  <option key={index} value="" disabled selected >
                     To
                   </option>
                   {
                     airports.map((airport)=>(
-                      <option key={airport.code} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={index} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
