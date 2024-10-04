@@ -2,6 +2,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
 import styles from '../flight.css';
 import { airports } from '@/app/assets/information'; // assuming your styles are in flight.css
@@ -9,8 +10,13 @@ import { airports } from '@/app/assets/information'; // assuming your styles are
 // Mock flight data (for demo purposes)
 const flightsData = airports;
 
-const FlightResults = () => {
+function Search(){
   const searchParams = useSearchParams();
+  return searchParams;
+}
+
+const FlightResults = () => {
+  const searchParams = Search();
   const from = searchParams.get('from');
   const to = searchParams.get('to');
   const date = searchParams.get('date');
