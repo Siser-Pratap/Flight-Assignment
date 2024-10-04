@@ -52,4 +52,14 @@ const FlightResults = () => {
   );
 };
 
-export default FlightResults;
+
+
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FlightResults />
+    </Suspense>
+  );
+};
+
+export default Page;
