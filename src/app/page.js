@@ -22,9 +22,9 @@ export default function Home() {
   };
   
   return (
-    <>
+    <div className="m-0 p-0 box-border font-serif text-[#333]">
     <header>
-        <div className="container">
+        <div className="container w-[80%] m-[0 auto] max-w-[1200px]">
             <h1>Book Your Flight</h1>
             <nav>
                 <ul>
@@ -48,12 +48,12 @@ export default function Home() {
                   </option>
                   {
                     airports.map((airport)=>(
-                      <option className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={index} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
                 <select value={to} onChange={(e) => setTo(e.target.value)} className="bg-white text-black " name="to" required>
-                  <option value="" disabled selected >
+                  <option key={index} value="" disabled selected >
                     To
                   </option>
                   {
@@ -82,7 +82,7 @@ export default function Home() {
             <p>&copy; 2024 Flight Booking. All rights reserved.</p>
         </div>
     </footer>
-    </>
+    </div>
 
   );
 }
