@@ -4,13 +4,22 @@ import Image from "next/image";
 import "./homepage.css";
 import { airports } from "./assets/information";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 
 export default function Home() {
-  const router = useRouter();
 
-  const handleSubmit = () =>{
-    router.push("/flightSearch");
-  }
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+  const [date, setDate] = useState('');
+  const router = useRouter();
+  
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (from && to && date) {
+      router.push(`/flightSearch/results?from=${from}&to=${to}&date=${date}`);
+    }
+  };
   
   return (
     <>
@@ -32,8 +41,8 @@ export default function Home() {
             <h2>Find the Best Flights</h2>
             <p>Book flights to your favorite destinations at the best prices.</p>
             <div className="flex justify-center gap-[1rem] ">
-            <form className="search-form">
-                <select className="bg-white text-black" name="from" required>
+            <form className="search-form" onSubmit={handleSearch}>
+                <select value={from} onChange={(e) => setFrom(e.target.value)} className="bg-white text-black" name="from" required>
                   <option value="" disabled selected >
                     From
                   </option>
@@ -43,7 +52,7 @@ export default function Home() {
                     ))
                   }
                 </select>
-                <select className="bg-white text-black " name="from" required>
+                <select value={to} onChange={(e) => setTo(e.target.value)} className="bg-white text-black " name="to" required>
                   <option value="" disabled selected >
                     To
                   </option>
@@ -53,9 +62,9 @@ export default function Home() {
                     ))
                   }
                 </select>
-                <input className="bg-white text-black" type="date" placeholder="Date" required />
+                <input value={date} onChange={(e) => setDate(e.target.value)} className="bg-white text-black" type="date" placeholder="Date" required />
+                <button className=""  type="submit">Search Flights</button>
               </form>
-              <button className="" onClick={handleSubmit} type="submit">Search Flights</button>
               </div>
         </div>
     </section>
