@@ -48,7 +48,7 @@ export default function Home() {
                   </option>
                   {
                     airports.map((airport, index)=>(
-                      <option key={index} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={`to-${index}`} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
@@ -58,7 +58,7 @@ export default function Home() {
                   </option>
                   {
                     airports.map((airport, index)=>(
-                      <option key={index} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={`to-${index}`} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
