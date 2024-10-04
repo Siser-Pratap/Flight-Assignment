@@ -48,17 +48,17 @@ export default function Home() {
                   </option>
                   {
                     airports.map((airport)=>(
-                      <option key={index} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={airport.code} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
                 <select value={to} onChange={(e) => setTo(e.target.value)} className="bg-white text-black " name="to" required>
-                  <option key={index} value="" disabled selected >
+                  <option value="" disabled selected >
                     To
                   </option>
                   {
                     airports.map((airport)=>(
-                      <option className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
+                      <option key={airport.code} className="text-black hover:bg-blue-200" value={airport.city} >{airport.city}</option>  
                     ))
                   }
                 </select>
