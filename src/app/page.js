@@ -3,13 +3,13 @@
 import Image from "next/image";
 import "./homepage.css";
 import { airports } from "./assets/information";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleSubmit = () =>{
-    navigate("/flightSearch");
+    router.push("/flightSearch");
   }
   
   return (
@@ -31,6 +31,7 @@ export default function Home() {
         <div className="container">
             <h2>Find the Best Flights</h2>
             <p>Book flights to your favorite destinations at the best prices.</p>
+            <div className="flex justify-center gap-[1rem] ">
             <form className="search-form">
                 <select className="bg-white text-black" name="from" required>
                   <option value="" disabled selected >
@@ -53,8 +54,9 @@ export default function Home() {
                   }
                 </select>
                 <input className="bg-white text-black" type="date" placeholder="Date" required />
-                <button onClick={handleSubmit} type="submit">Search Flights</button>
-            </form>
+              </form>
+              <button className="" onClick={handleSubmit} type="submit">Search Flights</button>
+              </div>
         </div>
     </section>
 

@@ -68,7 +68,7 @@ nav ul li a {
     gap: 1rem;
 }
 
-.search-form select, .search-form button {
+.search-form select, button {
     padding: 0.8rem;
     border: none;
     border-radius: 5px;
@@ -80,7 +80,7 @@ nav ul li a {
     max-width: 200px;
 }
 
-.search-form button {
+button {
     background-color: #ff5722;
     color: white;
     cursor: pointer;
